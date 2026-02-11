@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PatataLand | Minecraft SMP</title>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4a373", // Woody Brown
+                        "potato": "#f3cf44", // Potato Yellow
+                        "beige-accent": "#f5f5dc", // Beige Highlight
+                        "beige-muted": "#d2b48c", // Tan/Beige
+                        "charcoal": "#121212", // Deep Dark
+                        "surface": "#1e1e1e", // Card surface
+                        "brown-deep": "#432818",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style type="text/tailwindcss">
+        @layer base {
+            html {
+                scroll-behavior: smooth !important;
+            }
+            body {
+                font-family: 'Space Grotesk', sans-serif ;
+                overflow-x: hidden ;
+            }
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 1)) ;
+        }
+        .app-glass-v2 {
+            background: rgba(18, 18, 18, 0.75) ;
+            backdrop-filter: blur(24px) ;
+            border: 1px solid rgba(255, 255, 255, 0.15) ;
+        }
+        .glow-beige-border-enhanced {
+            border: 1px solid rgba(245, 245, 220, 0.3) ;
+            box-shadow: 0 0 40px rgba(212, 163, 115, 0.1), inset 0 0 20px rgba(245, 245, 220, 0.05) ;
+        }
+        .perspective-2000 {
+            perspective: 2000px ;
+        }
+        .mockup-3d-float {
+            transform: rotateY(-18deg) rotateX(8deg) rotateZ(1deg) ;
+            box-shadow: -20px 40px 80px -10px rgba(0, 0, 0, 0.7), -5px 10px 20px -5px rgba(0, 0, 0, 0.5) ;
+            transition: transform 0.5s ease ;
+        }
+        .mockup-3d-float:hover {
+            transform: rotateY(-12deg) rotateX(4deg) rotateZ(0deg) ;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24 ;
+        }
+    </style>
+</head>
+<body class="bg-charcoal text-beige-accent font-display">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-charcoal/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
+                    <span class="material-icons text-charcoal font-bold">grass</span>
+                </div>
+                <span class="text-2xl font-bold tracking-tighter text-white">
+                    PATATA<span class="text-primary">LAND</span>
+                </span>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-widest text-white/60">
+                <a class="hover:text-beige-accent transition-colors" href="#">Inicio</a>
+                <a class="hover:text-beige-accent transition-colors" href="#installer">Instalador de Mods</a>
+                <a class="hover:text-beige-accent transition-colors" href="#features">Características</a>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center gap-4">
+                <!-- Online Status -->
+                <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    <span class="text-xs font-bold text-white/80">24 ONLINE</span>
+                </div>
+
+                <!-- Play Button -->
+                <a href="#">
+                <button class="bg-beige-accent text-charcoal px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider hover:scale-105 transition-transform hover:bg-white">
+                    JUGAR AHORA
+                </button>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 z-0">
+            <img alt="Minecraft Shaders Screenshot" class="w-full h-full object-cover"
+                src="./assets/img/mainbckgrnd.png" />
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-4xl px-6 text-center">
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight leading-none">
+                La Aventura <span class="text-primary italic">Comienza</span> Aquí.
+            </h1>
+
+            <p class="text-xl text-white/60 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                Únete a la comunidad técnica más grande de habla hispana. Survival puro, economía real y eventos épicos
+                cada semana.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button
+                    class="w-full sm:w-auto bg-primary text-charcoal px-10 py-5 rounded-full font-bold text-lg hover:bg-beige-accent transition-all flex items-center justify-center gap-3 shadow-xl shadow-primary/10"
+                    id="joinserverbtn">
+                    <span class="material-icons">rocket_launch</span>
+                    UNIRSE AL SERVIDOR
+                </button>
+
+                <a href="https://discord.gg/TYFsmVEyuq" target="_blank">
+                    <button
+                        class="w-full sm:w-auto bg-white/5 border border-white/10 hover:bg-white/10 text-white px-10 py-5 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-3">
+                        <span class="material-icons">discord</span>
+                        COMUNIDAD
+                    </button>
+                </a>
+            </div>
+
+            <!-- Server Stats -->
+            <div class="mt-16 flex items-center justify-center gap-8 text-white/30">
+                <div class="flex flex-col items-center">
+                    <span class="text-2xl font-bold text-beige-accent">1.21.11 NeoForge</span>
+                    <span class="text-[10px] uppercase tracking-widest">Versión</span>
+                </div>
+
+                <div class="w-px h-8 bg-white/10"></div>
+
+                <div class="flex flex-col items-center">
+                    <span class="text-2xl font-bold text-beige-accent" id="Latency">45ms</span>
+                    <span class="text-[10px] uppercase tracking-widest">Latencia</span>
+                </div>
+
+                <div class="w-px h-8 bg-white/10"></div>
+
+                <div class="flex flex-col items-center">
+                    <span class="text-2xl font-bold text-beige-accent" id="ActivePlayers">2.5k</span>
+                    <span class="text-[10px] uppercase tracking-widest">Jugadores Activos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mod Installer Section -->
+    <section class="py-24 relative overflow-hidden bg-charcoal" id="installer">
+        <!-- Background Glow -->
+        <div class="absolute top-1/2 left-0 -translate-y-1/2 w-1/2 h-full bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="glow-beige-border-enhanced rounded-[3rem] p-1 bg-charcoal/40 overflow-hidden">
+                <div class="bg-surface/30 rounded-[2.8rem] p-8 lg:p-20 overflow-hidden relative">
+                    <div class="grid lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+                        <!-- 3D Mockup -->
+                        <div class="lg:col-span-7 perspective-2000 flex items-center justify-center py-10">
+                            <div class="mockup-3d-float relative z-10 w-full max-w-2xl rounded-2xl border border-white/20 overflow-hidden bg-black shadow-2xl">
+                                <div class="w-full aspect-[16/10] relative flex items-center justify-center">
+                                    <img alt="Vibrant Cinematic Minecraft Landscape" class="absolute inset-0 w-full h-full object-cover scale-105" src="./assets/img/background.webp"/>
+
+                                    <!-- Glass Panel -->
+                                    <div class="app-glass-v2 w-[88%] h-[85%] rounded-2xl p-8 relative z-10 text-white shadow-2xl flex flex-col justify-between">
+                                        <!-- Header -->
+                                        <div>
+                                            <div class="flex items-center justify-between mb-8">
+                                                <h3 class="text-2xl font-bold tracking-tight">Instalador de Mods</h3>
+                                                <div class="flex gap-2">
+                                                    <div class="w-3 h-3 rounded-full bg-white/20"></div>
+                                                    <div class="w-3 h-3 rounded-full bg-white/20"></div>
+                                                    <div class="w-3 h-3 rounded-full bg-white/20"></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Form Fields -->
+                                            <div class="space-y-6">
+                                                <!-- Mods Folder Path -->
+                                                <div class="space-y-2">
+                                                    <label class="text-[11px] font-bold uppercase tracking-widest text-white/50">Ruta de carpeta mods</label>
+                                                    <div class="flex gap-3">
+                                                        <div class="flex-1 bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-sm font-mono text-white/90 overflow-hidden whitespace-nowrap">
+                                                            C:\Users\Player\AppData\Roaming\.minecraft\mods
+                                                        </div>
+                                                        <button class="bg-primary/20 hover:bg-primary/30 text-primary px-5 py-3 rounded-xl text-xs font-bold transition-all border border-primary/30">
+                                                            Cambiar
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Mods JSON URL -->
+                                                <div class="space-y-2">
+                                                    <label class="text-[11px] font-bold uppercase tracking-widest text-white/50">URL de mods.json (No tocar)</label>
+                                                    <div class="bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-sm font-mono text-white/40 overflow-hidden whitespace-nowrap">
+                                                        https://raw.githubusercontent.com/patataland/installer/main/mods.json
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="absolute -inset-20 bg-primary/20 blur-[120px] -z-10 rounded-full opacity-40"></div>
+                        </div>
+
+                        <!-- Content Section -->
+                        <div class="lg:col-span-5 space-y-12">
+                            <div class="space-y-6">
+                                <!-- Badge -->
+                                <div class="inline-block px-4 py-1.5 bg-primary/10 border border-primary/20 rounded-full">
+                                    <span class="text-primary text-xs font-bold uppercase tracking-widest">Herramientas Oficiales</span>
+                                </div>
+
+                                <!-- Title -->
+                                <h2 class="text-5xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight">
+                                    Instalador <span class="text-primary italic">Automático</span>
+                                </h2>
+
+                                <!-- Description -->
+                                <p class="text-xl text-white/50 font-light leading-relaxed">
+                                    Descarga todos los mods con un solo clic. Nuestra aplicación se encarga de todo: versiones, dependencias y optimización para que tú solo te preocupes de jugar.
+                                </p>
+                            </div>
+
+                            <!-- Features -->
+                            <div class="grid gap-8">
+                                <!-- Feature 1 -->
+                                <div class="flex items-start gap-6 group">
+                                    <div class="w-16 h-16 shrink-0 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-300">
+                                        <span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+                                    </div>
+                                    <div class="pt-1">
+                                        <h4 class="text-xl font-bold text-white mb-1">Sin complicaciones</h4>
+                                        <p class="text-white/40 leading-relaxed">Olvídate de configurar carpetas .minecraft manualmente. Un click y listo.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Feature 2 -->
+                                <div class="flex items-start gap-6 group">
+                                    <div class="w-16 h-16 shrink-0 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-300">
+                                        <span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+                                    </div>
+                                    <div class="pt-1">
+                                        <h4 class="text-xl font-bold text-white mb-1">Seguro y Ligero</h4>
+                                        <p class="text-white/40 leading-relaxed">Código verificado que no consume recursos de tu sistema ni compromete tu cuenta.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="flex flex-col sm:flex-row gap-5 pt-4">
+                                <button class="bg-white/5 hover:bg-white/10 text-white px-8 py-5 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all border border-white/10">
+                                    <span class="material-icons">download</span>
+                                    DESCARGA WINDOWS
+                                </button>
+
+                                <button class="bg-white/5 hover:bg-white/10 text-white px-8 py-5 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all border border-white/10">
+                                    <span class="material-icons">download</span>
+                                    DESCARGA MAC
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-24 bg-surface">
+        <div class="max-w-7xl mx-auto px-6" id="features">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">¿Qué hace a PatataLand único?</h2>
+                <p class="text-white/40 max-w-xl mx-auto">
+                    Explora un mundo infinito con características personalizadas diseñadas para la mejor experiencia survival.
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="bg-charcoal p-8 rounded-xl border border-white/5 hover:border-beige-accent/30 transition-all group">
+                    <div class="w-14 h-14 bg-potato/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-potato/20 transition-colors">
+                        <span class="material-icons text-potato">map</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-beige-accent mb-3">Mapa Custom</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">
+                        Biomas únicos generados para fomentar la exploración y la creación de bases monumentales.
+                    </p>
+                </div>
+
+                <!-- Feature Card 2 -->
+                <div class="bg-charcoal p-8 rounded-xl border border-white/5 hover:border-primary/30 transition-all group">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                        <span class="material-icons text-primary">groups</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-beige-accent mb-3">Comunidad Activa</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">
+                        Staff 24/7 y una comunidad madura que valora el juego técnico y la colaboración.
+                    </p>
+                </div>
+
+                <!-- Feature Card 3 -->
+                <div class="bg-charcoal p-8 rounded-xl border border-white/5 hover:border-blue-500/30 transition-all group">
+                    <div class="w-14 h-14 bg-blue-500/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+                        <span class="material-icons text-blue-400">trending_up</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-beige-accent mb-3">Economía Fluida</h3>
+                    <p class="text-white/40 text-sm leading-relaxed">
+                        Mercado entre jugadores con un sistema de comercio robusto y balanceado.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-charcoal py-16 text-beige-accent border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Footer Content -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <span class="material-icons text-charcoal text-lg font-bold">grass</span>
+                    </div>
+                    <span class="text-xl font-bold tracking-tighter text-white uppercase">
+                        PATATA<span class="text-primary">LAND</span>
+                    </span>
+                </div>
+
+                <!-- Links -->
+                <!--<div class="flex gap-8 text-white/40 text-sm">
+                    <a class="hover:text-beige-accent transition-colors" href="#">1</a>
+                </div>-->
+
+                <!-- Social Links -->
+                <div class="flex gap-4">
+                    <!-- Linktree -->
+                    <a class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary hover:text-charcoal transition-all"
+                        href="https://linktr.ee/vic_redes" target="_blank">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="m13.73635 5.85251 4.00467 -4.11665 2.3248 2.3808 -4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766 -2.3248 2.3338L12.0005 12.099l-5.74052 5.76852 -2.3248 -2.3248 4.22864 -4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248 -2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center text-white/20 text-[10px] uppercase tracking-widest font-bold">
+                © 2024 PatataLand SMP. Minecraft es propiedad de Mojang Synergies AB. No estamos afiliados con Mojang.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
