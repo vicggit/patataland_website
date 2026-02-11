@@ -33,15 +33,20 @@ async function updateServerStats() {
         // Llamar a la API del servidor
         const response = await fetch(API_ENDPOINT);
         const data = await response.json();
+        const online = data.online;
 
-        if (data.online) {
+        if (online == true) {
             // Actualizar jugadores online
             const onlineCount = data.players.online;
             const onlineStatus = document.getElementById("OnlineStatus");
+            const onlineStatusCircle = document.getElementById("online-status-circle");
             if (onlineStatus) {
                 onlineStatus.textContent = `${onlineCount} ONLINE`;
             }
-
+            if (onlineStatusCircle) {
+                onlineStatusCircle.classList.remove("bg-red-500");
+                onlineStatusCircle.classList.add("bg-green-500");
+            }
             // Medir latencia
             const latency = await measureLatency();
             const latencyElement = document.getElementById("Latency");
@@ -59,8 +64,13 @@ async function updateServerStats() {
         } else {
             // Si el servidor está offline
             const onlineStatus = document.getElementById("OnlineStatus");
+            const onlineStatusCircle = document.getElementById("online-status-circle");
             if (onlineStatus) {
                 onlineStatus.textContent = "OFFLINE";
+            }
+            if (onlineStatusCircle) {
+                onlineStatusCircle.classList.remove("bg-green-500");
+                onlineStatusCircle.classList.add("bg-red-500");
             }
         }
     } catch (error) {
