@@ -1,53 +1,78 @@
 // ===========================
 // Configuration
 // ===========================
-const SERVER_IP = "patataland.vicdev.net"; // Cambia esto por la IP real del servidor
+const SERVER_IP = "patataland.vicdev.net";
+const API_ENDPOINT = "https://api.mcstatus.io/v2/status/java/patataland.vicdev.net";
 
 // ===========================
-// Update Server Statistics
+// Update Server Statistics from API
 // ===========================
 
 /**
- * Genera un número aleatorio dentro de un rango
+ * Mide la latencia haciendo un ping a la API
  */
-function getRandomInRange(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+async function measureLatency() {
+    try {
+        const startTime = performance.now();
+        await fetch(API_ENDPOINT, { method: "HEAD" });
+        const endTime = performance.now();
+        return Math.round(endTime - startTime);
+    } catch {
+        return null; // Si falla, devuelve null
+    }
 }
 
 /**
- * Actualiza las estadísticas del servidor
+ * Actualiza las estadísticas del servidor desde la API
  * - Jugadores online
  * - Latencia
- * - Jugadores activos
+ * - Versión del servidor
  */
-function updateServerStats() {
-    // Actualizar jugadores online (20-30)
-    const onlineCount = getRandomInRange(20, 30);
-    const onlineStatus = document.getElementById("OnlineStatus");
-    if (onlineStatus) {
-        onlineStatus.textContent = `${onlineCount} ONLINE`;
-    }
+async function updateServerStats() {
+    try {
+        // Llamar a la API del servidor
+        const response = await fetch(API_ENDPOINT);
+        const data = await response.json();
 
-    // Actualizar latencia (30-80ms)
-    const latency = getRandomInRange(30, 80);
-    const latencyElement = document.getElementById("Latency");
-    if (latencyElement) {
-        latencyElement.textContent = `${latency}ms`;
-    }
+        if (data.online) {
+            // Actualizar jugadores online
+            const onlineCount = data.players.online;
+            const onlineStatus = document.getElementById("OnlineStatus");
+            if (onlineStatus) {
+                onlineStatus.textContent = `${onlineCount} ONLINE`;
+            }
 
-    // Actualizar jugadores activos (2.1k - 2.9k)
-    const activePlayers = (getRandomInRange(21, 29) / 10).toFixed(1);
-    const activePlayersElement = document.getElementById("ActivePlayers");
-    if (activePlayersElement) {
-        activePlayersElement.textContent = `${activePlayers}k`;
+            // Medir latencia
+            const latency = await measureLatency();
+            const latencyElement = document.getElementById("Latency");
+            if (latencyElement && latency !== null) {
+                latencyElement.textContent = `${latency}ms`;
+            }
+
+            // Estimar jugadores activos (mostrar el máximo de jugadores como referencia)
+            const maxPlayers = data.players.max;
+            const activePlayersElement = document.getElementById("ActivePlayers");
+            if (activePlayersElement) {
+                // Mostrar online/max formato
+                activePlayersElement.textContent = `${onlineCount}/${maxPlayers}`;
+            }
+        } else {
+            // Si el servidor está offline
+            const onlineStatus = document.getElementById("OnlineStatus");
+            if (onlineStatus) {
+                onlineStatus.textContent = "OFFLINE";
+            }
+        }
+    } catch (error) {
+        console.error("Error al actualizar estadísticas del servidor:", error);
     }
 }
 
 // Actualizar estadísticas al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
     updateServerStats();
-    // Actualizar cada 15 segundos (15000ms)
-    setInterval(updateServerStats, 15000);
+    // Actualizar cada 1 segundos (1000ms)
+    setInterval(updateServerStats, 1000);
 });
 
 // ===========================
