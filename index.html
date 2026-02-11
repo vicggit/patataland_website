@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>PatataLand | Minecraft SMP</title>
+    <link rel="icon" type="image/png" href="./assets/img/logo.png" />
 
     <!-- External Libraries -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -90,9 +91,7 @@
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <!-- Logo -->
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
-                    <span class="material-icons text-charcoal font-bold">grass</span>
-                </div>
+                <img src="./assets/img/logo.png" alt="PatataLand Logo" class="w-10 h-10" />
                 <span class="text-2xl font-bold tracking-tighter text-white">
                     PATATA<span class="text-primary">LAND</span>
                 </span>
@@ -361,9 +360,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
                 <!-- Logo -->
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                        <span class="material-icons text-charcoal text-lg font-bold">grass</span>
-                    </div>
+                    <img src="./assets/img/logo.png" alt="PatataLand Logo" class="w-8 h-8" />
                     <span class="text-xl font-bold tracking-tighter text-white uppercase">
                         PATATA<span class="text-primary">LAND</span>
                     </span>
@@ -387,9 +384,27 @@
                 </div>
             </div>
 
-            <!-- Copyright -->
-            <div class="text-center text-white/20 text-[10px] uppercase tracking-widest font-bold">
-                © 2024 PatataLand SMP. Minecraft es propiedad de Mojang Synergies AB. No estamos afiliados con Mojang.
+            <!-- License & Copyright -->
+            <div class="text-center border-t border-white/10 pt-6">
+                <!-- CC License -->
+                <div class="text-white/70 text-xs mb-4">
+                    <a href="https://patataland.vicdev.es" target="_blank" class="text-primary hover:text-primary/80 transition">PatataLand Website</a> 
+                    © 2026 by 
+                    <a href="https://linktr.ee/vic_redes" target="_blank" class="text-primary hover:text-primary/80 transition">Vic_Gamer_YT</a> 
+                    is licensed under 
+                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" class="text-primary hover:text-primary/80 transition">CC BY-NC-ND 4.0</a>
+                    <span class="inline-flex items-center gap-1 ml-2">
+                        <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="Creative Commons" class="w-4 h-4" />
+                        <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="Attribution" class="w-4 h-4" />
+                        <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="Non-Commercial" class="w-4 h-4" />
+                        <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="No Derivatives" class="w-4 h-4" />
+                    </span>
+                </div>
+                
+                <!-- Minecraft Notice -->
+                <div class="text-white/20 text-[10px] uppercase tracking-widest font-bold">
+                    Minecraft es propiedad de Mojang Synergies AB. No estamos afiliados con Mojang.
+                </div>
             </div>
         </div>
     </footer>
