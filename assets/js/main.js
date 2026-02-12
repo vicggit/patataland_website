@@ -131,3 +131,22 @@ document.addEventListener("DOMContentLoaded", () => {
         joinServerBtn.addEventListener("click", handleJoinServerClick);
     }
 });
+
+// ===========================
+// Block Mobile Devices
+// ===========================
+
+function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent)
+        || window.innerWidth <= 768;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (isMobileDevice()) {
+        const blocker = document.getElementById("mobileBlock");
+        if (blocker) {
+            blocker.classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+        }
+    }
+});
