@@ -426,3 +426,9 @@ function animateParticles() {
 potatoImg.onload = () => {
     animateParticles();
 };
+document.getElementById("downloadwin").onclick = () => {
+  window.location.href = "/api/downloadwin";
+};
+document.getElementById("downloadmac").onclick = () => {
+  window.location.href = "/api/downloadmac";
+};
