@@ -374,7 +374,7 @@ const numParticles = 30; // menos porque son más visibles
 
 // Cargar imagen de la patata
 const potatoImg = new Image();
-potatoImg.src = './assets/img/logo.png';
+potatoImg.src = './assets/img/potato.webp';
 
 function resizeCanvas() {
     canvas.width = window.innerWidth;
