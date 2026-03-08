@@ -1,8 +1,8 @@
 // ===========================
 // Configuration
 // ===========================
-const SERVER_IP = "patataland.vicdev.net";
-const API_ENDPOINT = "https://api.mcstatus.io/v2/status/java/patataland.vicdev.net";
+const SERVER_IP = "patataland3.vicdev.net";
+const API_ENDPOINT = "https://api.mcstatus.io/v2/status/java/patataland3.vicdev.net";
 
 // ===========================
 // Update Server Statistics from API
@@ -80,9 +80,9 @@ async function updateServerStats() {
 
 // Actualizar estadísticas al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
-    updateServerStats();
+    // updateServerStats();
     // Actualizar cada 1 segundos (1000ms)
-    setInterval(updateServerStats, 1000);
+    // setInterval(updateServerStats, 1000);
 });
 
 // ===========================
@@ -145,6 +145,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isMobileDevice()) {
         const blocker = document.getElementById("mobileBlock");
+        if (!blocker) return;
+
+        // Mostrar
+        blocker.classList.remove("hidden");
+
+        // Forzar repaint y animar
+        setTimeout(() => {
+            blocker.classList.remove("opacity-0");
+            blocker.classList.add("opacity-100");
+
+            const box = blocker.querySelector("div");
+            box.classList.remove("scale-95");
+            box.classList.add("scale-100");
+        }, 50);
+
+        // Bloquear scroll
+        document.body.style.overflow = "hidden";
+    } else {
+        const blocker = document.getElementById("newEraBlock");
         if (!blocker) return;
 
         // Mostrar
