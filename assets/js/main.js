@@ -162,27 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Bloquear scroll
         document.body.style.overflow = "hidden";
-    } else {
-        const blocker = document.getElementById("newEraBlock");
-        if (!blocker) return;
-
-        // Mostrar
-        blocker.classList.remove("hidden");
-
-        // Forzar repaint y animar
-        setTimeout(() => {
-            blocker.classList.remove("opacity-0");
-            blocker.classList.add("opacity-100");
-
-            const box = blocker.querySelector("div");
-            box.classList.remove("scale-95");
-            box.classList.add("scale-100");
-        }, 50);
-
-        // Bloquear scroll
-        document.body.style.overflow = "hidden";
     }
-
 });
 // ===========================
 // Preloader Animation
