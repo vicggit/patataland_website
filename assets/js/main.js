@@ -1,8 +1,8 @@
 // ===========================
 // Configuration
 // ===========================
-const SERVER_IP = "patataland.vicdev.net";
-const API_ENDPOINT = "https://api.mcstatus.io/v2/status/java/patataland.vicdev.net";
+const SERVER_IP = "";//patataland.vicdev.net:19123";
+const API_ENDPOINT = "";//https://api.mcstatus.io/v2/status/java/patataland.vicdev.net:19123";
 
 // ===========================
 // Update Server Statistics from API
@@ -95,7 +95,14 @@ document.addEventListener("DOMContentLoaded", () => {
 function handleJoinServerClick() {
     const button = document.getElementById("joinserverbtn");
     if (!button) return;
-
+    if (!navigator.clipboard) {
+        alert("Tu navegador no soporta la función de copiar al portapapeles");
+        return;
+    }
+    if (!SERVER_IP) {
+        alert("El servidor no esta disponible actualmente");
+        return;
+    }
     // Copiar IP al portapapeles
     navigator.clipboard.writeText(SERVER_IP).then(() => {
         // Guardar el contenido original
