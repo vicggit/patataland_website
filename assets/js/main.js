@@ -1,8 +1,8 @@
 // ===========================
 // Configuration
 // ===========================
-const SERVER_IP = "patataland.vicdev.net:19123";
-const API_ENDPOINT = "https://api.mcstatus.io/v2/status/java/patataland.vicdev.net:19123";
+const SERVER_IP = "patataland.vicdev.net:19132";
+const API_ENDPOINT = "https://api.mcstatus.io/v2/status/java/patataland.vicdev.net:19132";
 
 // ===========================
 // Update Server Statistics from API
